@@ -10,15 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // change light theme
-      theme: ThemeData(primarySwatch: Colors.green),
-      // change dark theme
-      darkTheme: ThemeData(primarySwatch: Colors.brown),
-      // entire application colors
-      color: Colors.blue,
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeActivity(),
+      home: HomeActivity(),
     );
   }
 }
@@ -36,12 +30,8 @@ class HomeActivity extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('My App'),
-          titleSpacing: 20, // margin for title text from left
-          centerTitle: false, // title alignment center or not
-          toolbarHeight: 50, // appbar height in pixel
-          toolbarOpacity: 0.7,
           elevation: 15,
-          backgroundColor: Colors.lightGreen,
+          backgroundColor: Colors.green,
           actions: [
             IconButton(
                 onPressed: () {
@@ -58,13 +48,9 @@ class HomeActivity extends StatelessWidget {
                   mySnackBar("I am Settings", context);
                 },
                 icon: const Icon(Icons.settings)),
-            IconButton(
-                onPressed: () {
-                  mySnackBar("I am Email", context);
-                },
-                icon: const Icon(Icons.email)),
           ],
         ),
+        // ========= Floating Action Button ========
         floatingActionButton: FloatingActionButton(
           elevation: 10,
           backgroundColor: Colors.green,
@@ -73,6 +59,7 @@ class HomeActivity extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
+        // ========= Bottom Navigation Bar ========
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -81,6 +68,7 @@ class HomeActivity extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
         ),
+        // ========= Drawer ========
         drawer: Drawer(
           child: ListView(
             children: [
@@ -89,9 +77,9 @@ class HomeActivity extends StatelessWidget {
                 child: UserAccountsDrawerHeader(
                   currentAccountPicture: Image.network(
                       "https://pixlok.com/wp-content/uploads/2021/05/flutter-logo-768x768.jpg"),
-                  accountName: const Text('Mukarrom'),
-                  accountEmail: const Text('mukarrom@mail.com'),
-                  decoration: const BoxDecoration(color: Colors.brown),
+                  accountName: const Text('Mukarrom Hosain'),
+                  accountEmail: const Text('mukarrom21@gmail.com'),
+                  decoration: const BoxDecoration(color: Colors.green),
                 ),
               ),
               ListTile(
@@ -112,70 +100,7 @@ class HomeActivity extends StatelessWidget {
                 leading: const Icon(Icons.person),
                 title: const Text('Profile'),
                 onTap: () {
-                  mySnackBar("I am Home", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.email),
-                title: const Text('Email'),
-                onTap: () {
-                  mySnackBar("I am Email", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.phone),
-                title: const Text('Phone'),
-                onTap: () {
-                  mySnackBar("I am Phone", context);
-                },
-              ),
-            ],
-          ),
-        ),
-        endDrawer: Drawer(
-          child: ListView(
-            children: [
-              const DrawerHeader(
-                padding: EdgeInsets.all(0),
-                child: UserAccountsDrawerHeader(
-                  accountName: Text('Mukarrom'),
-                  accountEmail: Text('mukarrom@mail.com'),
-                  decoration: BoxDecoration(color: Colors.brown),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text('Home'),
-                onTap: () {
-                  mySnackBar("I am Home", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.contact_mail),
-                title: const Text('Contact'),
-                onTap: () {
-                  mySnackBar("I am Contact", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text('Profile'),
-                onTap: () {
-                  mySnackBar("I am Home", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.email),
-                title: const Text('Email'),
-                onTap: () {
-                  mySnackBar("I am Email", context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.phone),
-                title: const Text('Phone'),
-                onTap: () {
-                  mySnackBar("I am Phone", context);
+                  mySnackBar("I am Profile", context);
                 },
               ),
             ],
